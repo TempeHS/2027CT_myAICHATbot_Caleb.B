@@ -52,8 +52,16 @@ list_trainer.train(
         "4",
         "What is 1+2!",
         "3",
-        "What is 1+2!",
+        "What is 2+1!",
         "3",
+        "What is 2+3!",
+        "5",
+        "What is 3+2!",
+        "5",
+        "What is 3+3!",
+        "6",
+        "What is 3+1!",
+        "4",
     ]
 )
 
