@@ -65,6 +65,20 @@ list_trainer.train(
     ]
 )
 
+# Train on self harm
+list_trainer.train(
+    [
+        "Suicide!",
+        "If you are ever feeling down, then feel free to call someone or talk to someone.  Helplines that can help include:Kids helpline (1800 551 800),Beyond Blue (1300 224 636).If you ever feel sad or want to talk to someone then these are great options.",
+        "I want to kill myself!",
+        "If you are ever feeling down, then feel free to call someone or talk to someone.  Helplines that can help include:Kids helpline (1800 551 800),Beyond Blue (1300 224 636).If you ever feel sad or want to talk to someone then these are great options.",
+        "death!",
+        "If you are ever feeling down, then feel free to call someone or talk to someone.  Helplines that can help include:Kids helpline (1800 551 800),Beyond Blue (1300 224 636).If you ever feel sad or want to talk to someone then these are great options.",
+        "I want to kill someone!",
+        "If you are ever feeling down, then feel free to call someone or talk to someone.  Helplines that can help include:Kids helpline (1800 551 800),Beyond Blue (1300 224 636).If you ever feel sad or want to talk to someone then these are great options.",
+    ]
+)
+
 
 @app.route("/")
 def home():
