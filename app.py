@@ -65,25 +65,44 @@ list_trainer.train(
     ]
 )
 
-# Train on self harm
-list_trainer.train(
-    [
-        "Suicide!",
-        "If you are ever feeling down, then feel free to call someone or talk to someone.  Helplines that can help include:Kids helpline (1800 551 800),Beyond Blue (1300 224 636).If you ever feel sad or want to talk to someone then these are great options.",
-        "I want to kill myself!",
-        "If you are ever feeling down, then feel free to call someone or talk to someone.  Helplines that can help include:Kids helpline (1800 551 800),Beyond Blue (1300 224 636).If you ever feel sad or want to talk to someone then these are great options.",
-        "death!",
-        "If you are ever feeling down, then feel free to call someone or talk to someone.  Helplines that can help include:Kids helpline (1800 551 800),Beyond Blue (1300 224 636).If you ever feel sad or want to talk to someone then these are great options.",
-        "I want to kill someone!",
-        "If you are ever feeling down, then feel free to call someone or talk to someone.  Helplines that can help include:Kids helpline (1800 551 800),Beyond Blue (1300 224 636).If you ever feel sad or want to talk to someone then these are great options.",
-    ]
-)
-
 
 @app.route("/")
 def home():
     """Serve the main chat page."""
     return render_template("index.html")
+
+
+# Safety: Keywords that should trigger a mental health response
+CRISIS_KEYWORDS = [
+    "suicide",
+    "kill myself",
+    "end my life",
+    "self harm",
+    "self-harm",
+    "dont want to live",
+    "don't want to live",
+    "want to die",
+    "want to kill someone",
+]
+
+CRISIS_RESPONSE = """I'm concerned about what you've shared. Please know that you're not alone.
+
+If you're in crisis, please reach out for support:
+
+- Lifeline: 13 11 14 (24/7)
+- Kids Helpline: 1800 55 1800
+- Beyond Blue: 1300 22 4636
+
+I'm just a chatbot and can't provide the support you need, but these services have trained counselors ready to help right now."""
+
+
+def check_for_crisis(message):
+    """Check if message contains crisis keywords."""
+    message_lower = message.lower()
+    for keyword in CRISIS_KEYWORDS:
+        if keyword in message_lower:
+            return True
+    return False
 
 
 @app.route("/chat", methods=["POST"])
